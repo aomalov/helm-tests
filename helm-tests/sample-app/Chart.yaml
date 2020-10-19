@@ -1,0 +1,7 @@
+apiVersion: v2
+name: phoenix-template
+description: Phoenix service sample
+type: application
+# This is the chart version. This version number should be incremented each time you make changes
+version: 0.0.1
+appVersion: 0.2.0

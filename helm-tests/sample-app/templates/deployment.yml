@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phoenix-template
+  labels:
+    app: phoenix-template
+spec:
+  selector:
+    matchLabels:
+      app: phoenix-template
+  template:
+    metadata:
+      labels:
+        app: phoenix-template
+    spec:
+      containers:
+      - name: phoenix-template
+        image:  dv/phoenix-template:0.1

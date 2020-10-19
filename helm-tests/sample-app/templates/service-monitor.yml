@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: phoenix-template
+  labels:
+    release: k8s-prom
+spec:
+  endpoints:
+  - port: metrics
+    interval: 5s
+  selector:
+    matchLabels:
+      app: phoenix-template
