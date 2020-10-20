@@ -9,9 +9,9 @@ spec:
   selector:
     app: phoenix-template
   ports:
-  - port:       8080
+  - name:       web
+    port:       8080
     targetPort: 8080
-    name:       web
   - name:       metrics
     port:       9095
     targetPort: 9095
