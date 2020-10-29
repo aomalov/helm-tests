@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: phoenix-configmap
+data:
+  # property-like keys; each key maps to a simple value
+  rules_folder: "simple/path/11"

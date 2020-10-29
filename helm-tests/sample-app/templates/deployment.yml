@@ -4,7 +4,10 @@ metadata:
   name: phoenix-template
   labels:
     app: phoenix-template
+  annotations:
+    configmap.reloader.stakater.com/reload: "phoenix-configmap"
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: phoenix-template
@@ -13,6 +16,25 @@ spec:
       labels:
         app: phoenix-template
     spec:
+      volumes:
+        - name: config-volume
+          persistentVolumeClaim:
+            claimName: phoenix-pvc
       containers:
       - name: phoenix-template
         image:  dv/phoenix-template:0.1
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        volumeMounts:
+          - mountPath: /config/data
+            name: config-volume
+        env:
+          - name: RULES_FOLDER
+            valueFrom:
+              configMapKeyRef:
+                key: rules_folder
+                name: phoenix-configmap
