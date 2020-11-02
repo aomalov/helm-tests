@@ -20,6 +20,16 @@ spec:
         - name: config-volume
           persistentVolumeClaim:
             claimName: phoenix-pvc
+        - name: rules-volume
+          configMap:
+            name: phoenix-configmap
+{{- if hasKey .Values.config "file_pattern" }}
+            items:
+{{- range $path, $_ :=  .Files.Glob  .Values.config.file_pattern }}
+              - key:  {{ base $path | quote}}
+                path: {{ base $path | quote}}
+{{- end }}
+{{- end }}
       containers:
       - name: phoenix-template
         image:  dv/phoenix-template:0.1
@@ -32,6 +42,8 @@ spec:
         volumeMounts:
           - mountPath: /config/data
             name: config-volume
+          - mountPath: /config/rules
+            name: rules-volume
         env:
           - name: RULES_FOLDER
             valueFrom:

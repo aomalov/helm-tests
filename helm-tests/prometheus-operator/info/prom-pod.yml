@@ -1,0 +1,512 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: prometheus-k8s-prom-kube-prometheus-s-prometheus-0
+  generateName: prometheus-k8s-prom-kube-prometheus-s-prometheus-
+  namespace: default
+  selfLink: >-
+    /api/v1/namespaces/default/pods/prometheus-k8s-prom-kube-prometheus-s-prometheus-0
+  uid: 83411c46-df67-4faa-9969-f5e00325658e
+  resourceVersion: '438281'
+  creationTimestamp: '2020-10-19T19:44:46Z'
+  labels:
+    app: prometheus
+    controller-revision-hash: prometheus-k8s-prom-kube-prometheus-s-prometheus-7cd777f8b7
+    prometheus: k8s-prom-kube-prometheus-s-prometheus
+    statefulset.kubernetes.io/pod-name: prometheus-k8s-prom-kube-prometheus-s-prometheus-0
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      name: prometheus-k8s-prom-kube-prometheus-s-prometheus
+      uid: a8376712-cc0c-4aa7-8c2b-37cfab4a9f38
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2020-10-20T14:08:04Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:controller-revision-hash': {}
+            'f:prometheus': {}
+            'f:statefulset.kubernetes.io/pod-name': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"a8376712-cc0c-4aa7-8c2b-37cfab4a9f38"}':
+              .: {}
+              'f:apiVersion': {}
+              'f:blockOwnerDeletion': {}
+              'f:controller': {}
+              'f:kind': {}
+              'f:name': {}
+              'f:uid': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"prometheus"}':
+              .: {}
+              'f:args': {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:livenessProbe':
+                .: {}
+                'f:failureThreshold': {}
+                'f:httpGet':
+                  .: {}
+                  'f:path': {}
+                  'f:port': {}
+                  'f:scheme': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:name': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":9090,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:name': {}
+                  'f:protocol': {}
+              'f:readinessProbe':
+                .: {}
+                'f:failureThreshold': {}
+                'f:httpGet':
+                  .: {}
+                  'f:path': {}
+                  'f:port': {}
+                  'f:scheme': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:resources': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/etc/prometheus/certs"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/etc/prometheus/config_out"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/etc/prometheus/rules/prometheus-k8s-prom-kube-prometheus-s-prometheus-rulefiles-0"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/prometheus"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+            'k:{"name":"prometheus-config-reloader"}':
+              .: {}
+              'f:args': {}
+              'f:command': {}
+              'f:env':
+                .: {}
+                'k:{"name":"POD_NAME"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:fieldRef':
+                      .: {}
+                      'f:apiVersion': {}
+                      'f:fieldPath': {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/etc/prometheus/config"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/etc/prometheus/config_out"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+            'k:{"name":"rules-configmap-reloader"}':
+              .: {}
+              'f:args': {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/etc/prometheus/rules/prometheus-k8s-prom-kube-prometheus-s-prometheus-rulefiles-0"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:hostname': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext':
+            .: {}
+            'f:fsGroup': {}
+            'f:runAsGroup': {}
+            'f:runAsNonRoot': {}
+            'f:runAsUser': {}
+          'f:serviceAccount': {}
+          'f:serviceAccountName': {}
+          'f:subdomain': {}
+          'f:terminationGracePeriodSeconds': {}
+          'f:volumes':
+            .: {}
+            'k:{"name":"config"}':
+              .: {}
+              'f:name': {}
+              'f:secret':
+                .: {}
+                'f:defaultMode': {}
+                'f:secretName': {}
+            'k:{"name":"config-out"}':
+              .: {}
+              'f:emptyDir': {}
+              'f:name': {}
+            'k:{"name":"prometheus-k8s-prom-kube-prometheus-s-prometheus-db"}':
+              .: {}
+              'f:emptyDir': {}
+              'f:name': {}
+            'k:{"name":"prometheus-k8s-prom-kube-prometheus-s-prometheus-rulefiles-0"}':
+              .: {}
+              'f:configMap':
+                .: {}
+                'f:defaultMode': {}
+                'f:name': {}
+              'f:name': {}
+            'k:{"name":"tls-assets"}':
+              .: {}
+              'f:name': {}
+              'f:secret':
+                .: {}
+                'f:defaultMode': {}
+                'f:secretName': {}
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2020-10-29T20:32:09Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.1.0.104"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+spec:
+  volumes:
+    - name: config
+      secret:
+        secretName: prometheus-k8s-prom-kube-prometheus-s-prometheus
+        defaultMode: 420
+    - name: tls-assets
+      secret:
+        secretName: prometheus-k8s-prom-kube-prometheus-s-prometheus-tls-assets
+        defaultMode: 420
+    - name: config-out
+      emptyDir: {}
+    - name: prometheus-k8s-prom-kube-prometheus-s-prometheus-rulefiles-0
+      configMap:
+        name: prometheus-k8s-prom-kube-prometheus-s-prometheus-rulefiles-0
+        defaultMode: 420
+    - name: prometheus-k8s-prom-kube-prometheus-s-prometheus-db
+      emptyDir: {}
+    - name: k8s-prom-kube-prometheus-s-prometheus-token-2c25k
+      secret:
+        secretName: k8s-prom-kube-prometheus-s-prometheus-token-2c25k
+        defaultMode: 420
+  containers:
+    - name: prometheus
+      image: 'quay.io/prometheus/prometheus:v2.21.0'
+      args:
+        - '--web.console.templates=/etc/prometheus/consoles'
+        - '--web.console.libraries=/etc/prometheus/console_libraries'
+        - '--config.file=/etc/prometheus/config_out/prometheus.env.yaml'
+        - '--storage.tsdb.path=/prometheus'
+        - '--storage.tsdb.retention.time=10d'
+        - '--web.enable-lifecycle'
+        - '--storage.tsdb.no-lockfile'
+        - >-
+          --web.external-url=http://k8s-prom-kube-prometheus-s-prometheus.default:9090
+        - '--web.route-prefix=/'
+      ports:
+        - name: web
+          containerPort: 9090
+          protocol: TCP
+      resources: {}
+      volumeMounts:
+        - name: config-out
+          readOnly: true
+          mountPath: /etc/prometheus/config_out
+        - name: tls-assets
+          readOnly: true
+          mountPath: /etc/prometheus/certs
+        - name: prometheus-k8s-prom-kube-prometheus-s-prometheus-db
+          mountPath: /prometheus
+        - name: prometheus-k8s-prom-kube-prometheus-s-prometheus-rulefiles-0
+          mountPath: >-
+            /etc/prometheus/rules/prometheus-k8s-prom-kube-prometheus-s-prometheus-rulefiles-0
+        - name: k8s-prom-kube-prometheus-s-prometheus-token-2c25k
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      livenessProbe:
+        httpGet:
+          path: /-/healthy
+          port: web
+          scheme: HTTP
+        timeoutSeconds: 3
+        periodSeconds: 5
+        successThreshold: 1
+        failureThreshold: 6
+      readinessProbe:
+        httpGet:
+          path: /-/ready
+          port: web
+          scheme: HTTP
+        timeoutSeconds: 3
+        periodSeconds: 5
+        successThreshold: 1
+        failureThreshold: 120
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: FallbackToLogsOnError
+      imagePullPolicy: IfNotPresent
+    - name: prometheus-config-reloader
+      image: 'quay.io/prometheus-operator/prometheus-config-reloader:v0.42.1'
+      command:
+        - /bin/prometheus-config-reloader
+      args:
+        - '--log-format=logfmt'
+        - '--reload-url=http://127.0.0.1:9090/-/reload'
+        - '--config-file=/etc/prometheus/config/prometheus.yaml.gz'
+        - '--config-envsubst-file=/etc/prometheus/config_out/prometheus.env.yaml'
+      env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+      resources:
+        limits:
+          cpu: 100m
+          memory: 25Mi
+        requests:
+          cpu: 100m
+          memory: 25Mi
+      volumeMounts:
+        - name: config
+          mountPath: /etc/prometheus/config
+        - name: config-out
+          mountPath: /etc/prometheus/config_out
+        - name: k8s-prom-kube-prometheus-s-prometheus-token-2c25k
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: FallbackToLogsOnError
+      imagePullPolicy: IfNotPresent
+    - name: rules-configmap-reloader
+      image: 'docker.io/jimmidyson/configmap-reload:v0.4.0'
+      args:
+        - '--webhook-url=http://127.0.0.1:9090/-/reload'
+        - >-
+          --volume-dir=/etc/prometheus/rules/prometheus-k8s-prom-kube-prometheus-s-prometheus-rulefiles-0
+      resources:
+        limits:
+          cpu: 100m
+          memory: 25Mi
+        requests:
+          cpu: 100m
+          memory: 25Mi
+      volumeMounts:
+        - name: prometheus-k8s-prom-kube-prometheus-s-prometheus-rulefiles-0
+          mountPath: >-
+            /etc/prometheus/rules/prometheus-k8s-prom-kube-prometheus-s-prometheus-rulefiles-0
+        - name: k8s-prom-kube-prometheus-s-prometheus-token-2c25k
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: FallbackToLogsOnError
+      imagePullPolicy: IfNotPresent
+  restartPolicy: Always
+  terminationGracePeriodSeconds: 600
+  dnsPolicy: ClusterFirst
+  serviceAccountName: k8s-prom-kube-prometheus-s-prometheus
+  serviceAccount: k8s-prom-kube-prometheus-s-prometheus
+  nodeName: docker-desktop
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 2000
+    runAsNonRoot: true
+    fsGroup: 2000
+  hostname: prometheus-k8s-prom-kube-prometheus-s-prometheus-0
+  subdomain: prometheus-operated
+  schedulerName: default-scheduler
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+  priority: 0
+  enableServiceLinks: true
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2020-10-19T19:44:46Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2020-10-29T20:31:57Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2020-10-29T20:31:57Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2020-10-19T19:44:46Z'
+  hostIP: 192.168.65.3
+  podIP: 10.1.0.104
+  podIPs:
+    - ip: 10.1.0.104
+  startTime: '2020-10-19T19:44:46Z'
+  containerStatuses:
+    - name: prometheus
+      state:
+        running:
+          startedAt: '2020-10-29T20:31:47Z'
+      lastState:
+        terminated:
+          exitCode: 0
+          reason: Completed
+          startedAt: '2020-10-26T10:52:33Z'
+          finishedAt: '2020-10-29T20:31:47Z'
+          containerID: >-
+            docker://39f13ad9603cbb62e4125d84beff99e43f9f968d78109d798cc167b850ab9fba
+      ready: true
+      restartCount: 5
+      image: 'prom/prometheus:latest'
+      imageID: >-
+        docker-pullable://prom/prometheus@sha256:d43417c260e516508eed1f1d59c10c49d96bbea93eafb4955b0df3aea5908971
+      containerID: >-
+        docker://5878c4e2fba35c1715519f2a172e351f4be433236acd9ad9cb41bc7305f69882
+      started: true
+    - name: prometheus-config-reloader
+      state:
+        running:
+          startedAt: '2020-10-26T10:52:33Z'
+      lastState:
+        terminated:
+          exitCode: 255
+          reason: Error
+          message: >-
+            Error on reading termination message from logs: failed to try
+            resolving symlinks in path
+            "/var/log/pods/default_prometheus-k8s-prom-kube-prometheus-s-prometheus-0_83411c46-df67-4faa-9969-f5e00325658e/prometheus-config-reloader/3.log":
+            lstat
+            /var/log/pods/default_prometheus-k8s-prom-kube-prometheus-s-prometheus-0_83411c46-df67-4faa-9969-f5e00325658e/prometheus-config-reloader/3.log:
+            no such file or directory
+          startedAt: '2020-10-26T10:18:28Z'
+          finishedAt: '2020-10-26T10:52:12Z'
+          containerID: >-
+            docker://b6d8dadc3520c97eb3ea47635bc9e84c32bd61a8be645b24883fe4ab7ed80030
+      ready: true
+      restartCount: 4
+      image: 'quay.io/prometheus-operator/prometheus-config-reloader:v0.42.1'
+      imageID: >-
+        docker-pullable://quay.io/prometheus-operator/prometheus-config-reloader@sha256:d78d10ef97738d1d2944c3ea38d87fee014eb9a994e08799a05b481ab34196b0
+      containerID: >-
+        docker://867ce2773309b480e9b328a58863c15ee6b69d1b906adefbf4c46242dff08547
+      started: true
+    - name: rules-configmap-reloader
+      state:
+        running:
+          startedAt: '2020-10-26T10:52:34Z'
+      lastState:
+        terminated:
+          exitCode: 255
+          reason: Error
+          message: >-
+            Error on reading termination message from logs: failed to try
+            resolving symlinks in path
+            "/var/log/pods/default_prometheus-k8s-prom-kube-prometheus-s-prometheus-0_83411c46-df67-4faa-9969-f5e00325658e/rules-configmap-reloader/3.log":
+            lstat
+            /var/log/pods/default_prometheus-k8s-prom-kube-prometheus-s-prometheus-0_83411c46-df67-4faa-9969-f5e00325658e/rules-configmap-reloader/3.log:
+            no such file or directory
+          startedAt: '2020-10-26T10:18:29Z'
+          finishedAt: '2020-10-26T10:52:12Z'
+          containerID: >-
+            docker://d09a0db30ca748e2d177e39169b6311ff515adbd763e4019ac11cfc57b5140d5
+      ready: true
+      restartCount: 4
+      image: 'jimmidyson/configmap-reload:v0.4.0'
+      imageID: >-
+        docker-pullable://jimmidyson/configmap-reload@sha256:17d34fd73f9e8a78ba7da269d96822ce8972391c2838e08d92a990136adb8e4a
+      containerID: >-
+        docker://ee2c452e817c36fad5785d345ec872ea90da4c38839bccd06bd2dc9500878c0c
+      started: true
+  qosClass: Burstable
