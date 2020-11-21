@@ -1,3 +1,3 @@
 config:
   other: "some"
-#  file_pattern: "data/**.txt"
+  file_pattern: "data/**.txt"

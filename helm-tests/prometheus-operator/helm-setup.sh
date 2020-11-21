@@ -1,5 +1,5 @@
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add "stable" "https://charts.helm.sh/stable"
 helm repo update
 #install with helm3 - ignore CRD warnings - looks like everything is OK
 helm install k8s-prom  prometheus-community/kube-prometheus-stack

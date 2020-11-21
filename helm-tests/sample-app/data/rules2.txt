@@ -1,2 +1,2 @@
 rule2
-rule2
+rule123
