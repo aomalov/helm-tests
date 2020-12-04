@@ -1,0 +1,5 @@
+if( input.browserSivtSignatures != 0) {
+  output.addRegistrationSource(input.browserSivtSignatures);
+  output.addIsSignatureFraudBotRegistration(true);
+  output.sessionLevelFraud['browserSivt'] = true;
+}

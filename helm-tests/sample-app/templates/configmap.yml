@@ -6,12 +6,3 @@ data:
 {{- if hasKey .Values.config "file_pattern" }}
 {{ (.Files.Glob .Values.config.file_pattern ).AsConfig | indent 2 }}
 {{- end }}
-  # property-like keys; each key maps to a simple value
-  rules_folder: "/config/rules"
-  # file-like keys;
-  rules1.yaml: |-
-    groups:
-    - name: alertmanager.rules
-      rules:
-        labels:
-          severity: critical123

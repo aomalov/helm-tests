@@ -4,10 +4,8 @@ metadata:
   name: phoenix-template
   labels:
     app: phoenix-template
-  annotations:
-    configmap.reloader.stakater.com/reload: "phoenix-configmap"
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: phoenix-template
@@ -17,22 +15,12 @@ spec:
         app: phoenix-template
     spec:
       volumes:
-        - name: config-volume
-          persistentVolumeClaim:
-            claimName: phoenix-pvc
         - name: rules-volume
           configMap:
             name: phoenix-configmap
-{{- if hasKey .Values.config "file_pattern" }}
-            items:
-{{- range $path, $_ :=  .Files.Glob  .Values.config.file_pattern }}
-              - key:  {{ base $path | quote}}
-                path: {{ base $path | quote}}
-{{- end }}
-{{- end }}
       containers:
       - name: phoenix-template
-        image:  dv/phoenix-template:0.2
+        image:  gcr.io/devops-273716/gitlab/fraud-phoenix-service:fd-1069
         readinessProbe:
           httpGet:
             path: /readiness
@@ -40,14 +28,9 @@ spec:
           initialDelaySeconds: 3
           periodSeconds: 3
         volumeMounts:
-          - mountPath: /config/data
-            name: config-volume
           - mountPath: /config/rules
             name: rules-volume
             readOnly: true
         env:
           - name: RULES_FOLDER
-            valueFrom:
-              configMapKeyRef:
-                key: rules_folder
-                name: phoenix-configmap
+            value: "/config/rules"

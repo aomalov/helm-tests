@@ -12,12 +12,12 @@ metadata:
       }
       proxy_set_header proxied $res;
 spec:
-  ingressClassName: ngnix
+  ingressClassName:
   rules:
-    - host: phoenix.svc
+    - host: fraud.gcpd-phx.doubleverify.io
       http:
         paths:
-          - path: /do_work
+          - path: /fraud-service
             backend:
               serviceName: phoenix-template
               servicePort: 8080

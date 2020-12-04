@@ -1,0 +1,3 @@
+rules:
+  - name: "browserSivt.rule"
+    priority: 2
