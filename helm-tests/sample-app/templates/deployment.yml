@@ -32,7 +32,7 @@ spec:
 {{- end }}
       containers:
       - name: phoenix-template
-        image:  dv/phoenix-template:0.1
+        image:  dv/phoenix-template:0.2
         readinessProbe:
           httpGet:
             path: /readiness

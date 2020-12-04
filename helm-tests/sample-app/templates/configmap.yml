@@ -14,4 +14,4 @@ data:
     - name: alertmanager.rules
       rules:
         labels:
-          severity: critical12
+          severity: critical123
