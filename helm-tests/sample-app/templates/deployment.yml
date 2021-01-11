@@ -21,6 +21,7 @@ spec:
       containers:
       - name: phoenix-template
         image:  gcr.io/devops-273716/gitlab/fraud-phoenix-service:fd-1069
+        imagePullPolicy: Always
         readinessProbe:
           httpGet:
             path: /readiness
@@ -34,3 +35,5 @@ spec:
         env:
           - name: RULES_FOLDER
             value: "/config/rules"
+          - name: SERVICE_PATH
+            value: "fraud-service-nginx"
