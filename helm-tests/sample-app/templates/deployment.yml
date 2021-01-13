@@ -20,14 +20,8 @@ spec:
             name: phoenix-configmap
       containers:
       - name: phoenix-template
-        image:  gcr.io/devops-273716/gitlab/fraud-phoenix-service:fd-1069
+        image:  docker.io/aomalov/sample-akka-http:latest
         imagePullPolicy: Always
-        readinessProbe:
-          httpGet:
-            path: /readiness
-            port: 8080
-          initialDelaySeconds: 3
-          periodSeconds: 3
         volumeMounts:
           - mountPath: /config/rules
             name: rules-volume
@@ -36,4 +30,4 @@ spec:
           - name: RULES_FOLDER
             value: "/config/rules"
           - name: SERVICE_PATH
-            value: "fraud-service-nginx"
+            value: "fraud-service"

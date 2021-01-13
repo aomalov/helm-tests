@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: phoenix-ingress-haproxy
+  annotations:
+    kubernetes.io/ingress.class: haproxy
+    haproxy.org/request-set-header: proxied %[req.hdr_names()]
+spec:
+  rules:
+    - host: hello-world-haproxy.doubleverify.io
+      http:
+        paths:
+          - path: /hello
+            backend:
+              serviceName: phoenix-template
+              servicePort: 8080
