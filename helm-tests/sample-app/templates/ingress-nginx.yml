@@ -8,10 +8,10 @@ metadata:
       set_by_lua_block $res {
         local h  = ngx.req.raw_header(true)
         local newstr, n, err = ngx.re.gsub(h, "(:.*\r\n)", ",", "imJ")
-        local newstr2, n, err = ngx.re.gsub(newstr, "(\r\n)", "", "imJ")
+        local newstr2, n, err = ngx.re.gsub(newstr, "(,\r\n)", "", "imJ")
         return newstr2
       }
-      proxy_set_header proxied $res;
+      proxy_set_header raw_http_headers $res;
 spec:
   rules:
     - host: hello-world-nginx.doubleverify.io
