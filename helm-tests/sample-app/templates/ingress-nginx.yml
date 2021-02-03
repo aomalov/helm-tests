@@ -8,8 +8,14 @@ metadata:
       set_by_lua_block $res {
         local h  = ngx.req.raw_header(true)
         local newstr, n, err = ngx.re.gsub(h, "(:.*\r\n)", ",", "imJ")
-        local newstr2, n, err = ngx.re.gsub(newstr, "(,\r\n)", "", "imJ")
-        return newstr2
+        local newstr2, n, err = ngx.re.sub(newstr, "(,\r\n)", "", "imJ")
+        local m, err = ngx.re.match(h,"keep-alive","imJ")
+        if m then
+          local newstr3, n, err = ngx.re.sub(newstr2, "(,connection)", "", "iJ")
+          return newstr3
+        else
+          return newstr2
+        end
       }
       proxy_set_header raw_http_headers $res;
 spec:
