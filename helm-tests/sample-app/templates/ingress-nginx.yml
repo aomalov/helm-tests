@@ -7,15 +7,16 @@ metadata:
     nginx.ingress.kubernetes.io/configuration-snippet: |
       set_by_lua_block $res {
         local h  = ngx.req.raw_header(true)
-        local newstr, n, err = ngx.re.gsub(h, "(:.*\r\n)", ",", "imJ")
-        local newstr2, n, err = ngx.re.sub(newstr, "(,\r\n)", "", "imJ")
         local m, err = ngx.re.match(h,"keep-alive","imJ")
+        local newstr, n, err = ngx.re.gsub(h, "(:.*\r\n)", ",", "imJ")
+        local newstr2
         if m then
-          local newstr3, n, err = ngx.re.sub(newstr2, "(,connection)", "", "iJ")
-          return newstr3
+          newstr2, n, err = ngx.re.sub(newstr, "(connection,)", "", "iJ")
         else
-          return newstr2
+          newstr2 = newstr
         end
+        local newstr3, n, err = ngx.re.sub(newstr2, "(,\r\n)", "", "iJ")
+        return newstr3
       }
       proxy_set_header raw_http_headers $res;
 spec:
